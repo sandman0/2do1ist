@@ -14,6 +14,7 @@ def todo_list(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('accounts/login/')
 
+    loggedinuser = request.user.username
     todos = Todo.objects.filter(user_id=request.user.id)
     completed = sum( t.completed for t in todos )
     if 'LAST_OP' not in request.session:

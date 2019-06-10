@@ -14,10 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.conf.urls import include
+#import django_saml2_auth.views
 
 urlpatterns = [
+    # These are the SAML2 related URLs. You can change "^saml2_auth/" regex to
+    # any path you want, like "^sso_auth/", "^sso_login/", etc. (required)
+    #re_path(r'^saml2_auth/', include('django_saml2_auth.urls')),
+
+    # The following line will replace the default user login with SAML2 (optional)
+    # If you want to specific the after-login-redirect-URL, use parameter "?next=/the/path/you/want"
+    # with this view.
+    #re_path(r'^accounts/login/$', django_saml2_auth.views.signin),
+
+    # The following line will replace the admin login with SAML2 (optional)
+    # If you want to specific the after-login-redirect-URL, use parameter "?next=/the/path/you/want"
+    # with this view.
+    #re_path(r'^admin/login/$', django_saml2_auth.views.signin),
+
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('', include('todolist.urls'))

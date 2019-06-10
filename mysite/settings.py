@@ -25,7 +25,7 @@ SECRET_KEY = '3*$stczs$j@-rf6fbl%r7okrzu4d4&z(@(lc#jx8kgp5kax#d&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['todo.example.net']
 
 
 # Application definition
@@ -127,3 +127,18 @@ STATICFILES_DIRS = [
 
 # for user login
 LOGIN_REDIRECT_URL = '/'
+
+#SAML2_AUTH = {
+#    'METADATA_LOCAL_FILE_PATH': '/home/forgerock/django-saml2/metadata.xml',
+#    'DEFAULT_NEXT_URL': '/',
+#    'CREATE_USER': 'FALSE',
+#    'ATTRIBUTES_MAP': {
+#        'email': 'mail',
+#        'username': 'uid',
+#        'first_name': 'givenName',
+#        'last_name': 'sn',
+#    },
+#    'ENTITY_ID': 'djangosp',
+#    'USE_JWT': False,
+#    'FRONTEND_URL': 'https://myfrontendclient.com',
+#}
